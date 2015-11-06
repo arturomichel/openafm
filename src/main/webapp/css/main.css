@@ -7,45 +7,27 @@ html {
 	
 }
 
-body {
-	background: url(/images/afm_diagram.png) no-repeat center center fixed;
-	-webkit-background-size: contain;
-	-moz-background-size: contain;
-	-o-background-size: contain;
-	background-size: contain;
-}
-
 
 #main {
-	
+	background-image: url("/images/afm_diagram.png");
+    background-color: #ffffff;
+    background-origin: content-box;
+    background-attachment: local;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
 }
 
 
 div.cell  {
 	padding: 0 !important;
+	float: left;
+	margin:0;
 }
 div.cell:hover  {
-	 color: rgba(255,0,255,0.60) !important;
-	 border: 1px solid #000000;
+	 
 }
 
 #afm {
 	max-width: 100%;
-}
-
-.control {
-	position: relative;
-	display: block;
-}
-
-.control:before {
-	content: '\f053';
-	font-family: 'FontAwesome';
-	top: 0;
-}
-
-.control:after {
-	content: '\f054';
-	font-family: 'FontAwesome';
-	top: 0;
 }

@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+   http://www.springframework.org/schema/data/mongo 
+   http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+	
+	<mvc:annotation-driven />
+	
+	<context:property-placeholder location="classpath:conf/${DEP_ENV}/db.properties" />
+
+	<context:component-scan base-package="com.openafm.web" />
+
+	<!-- <bean id="factory" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" 
+		/> -->
+
+	<!-- Define the MongoTemplate which handles connectivity with MongoDB -->
+	<!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongo" ref="mongo" />
+		<constructor-arg name="databaseName" value="${db.name:demo}" />
+	</bean> -->
+
+	<!-- Factory bean that creates the Mongo instance -->
+	<!-- <bean id="mongo"
+		class="org.springframework.data.mongodb.core.MongoClientFactoryBean">
+		<property name="host" value="${db.host:localhost}" />
+		<property name="port" value="${db.port:27017}" />
+	</bean> -->
+
+	<!-- Use this post processor to translate any MongoExceptions thrown in 
+		@Repository annotated classes -->
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<mongo:mongo host="${mongo.host:localhost}" port="${mongo.port:27017}">
+		<mongo:options 
+			connections-per-host="${mongo.connectionsPerHost:8}"
+			threads-allowed-to-block-for-connection-multiplier="${mongo.threadsAllowedToBlockForConnectionMultiplier:4}"
+			connect-timeout="${mongo.connectTimeout:1000}" 
+			max-wait-time="${mongo.maxWaitTime:1500}"
+			auto-connect-retry="${mongo.autoConnectRetry:true}" 
+			socket-keep-alive="${mongo.socketKeepAlive:true}"
+			socket-timeout="${mongo.socketTimeout:1500}" 
+			slave-ok="${mongo.slaveOk:true}"
+			write-number="1" write-timeout="0" write-fsync="true" />
+	</mongo:mongo>
+
+	<mongo:db-factory dbname="${mongo.db.name:dev}" mongo-ref="mongo" />
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+</beans>

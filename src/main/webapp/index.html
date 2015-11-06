@@ -11,17 +11,19 @@
 </head>
 <body>
 
-	<div class="col-xs-12" id="main" ng-controller="MainCtrl as main">
-		<div class="row" row ng-repeat="row in rows track by $index">
-			<div col ng-repeat="col in cols track by $index" class="cell col-xs-1" id="{{row}}{{col}}">{{row}}{{col}}</div>
+	<div class="" id="main" ng-controller="MainCtrl as main">
+		<div row class="" row ng-repeat="row in rows track by $index">
+			<div cell ng-click="showInfo(row,col);" ng-repeat="col in cols track by $index" class="cell" id="{{row}}-{{col}}"></div>
 		</div>
 	</div>
-	//todo on-mouseenter on-mouseleave to each div.
-	//todo create a map
+	
 	<script type="text/javascript" src="scripts/vendors/angular.min.js"></script>
 	<script type="text/javascript" src="scripts/vendors/angular-route.min.js"></script>
 	<script type="text/javascript" src="scripts/vendors/angular-animate.min.js"></script>
 	<script type="text/javascript" src="scripts/vendors/ui-bootstrap-tpls-0.14.2.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js" type="text/javascript"></script>
+	
 	<script type="text/javascript" src="scripts/app/openafm.js"></script>
+	<script type="text/javascript" src="scripts/app/factories.js"></script>
 </body>
 </html>

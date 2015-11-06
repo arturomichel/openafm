@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="openafm">
+
+<head>
+<base href="/">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="playmex.casino">
+<title>Open AFM admin page</title>
+<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700'
+	rel='stylesheet' type='text/css'>
+<!-- Custom CSS -->
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+	<div id="parts" ng-controller="partController">
+		<div id="part" class="col-sm-2">
+			<div ng-repeat="part in parts" ng-click="select(part)">{{part.name}}</div>
+		</div>
+
+		<div id="gameDetails" class="col-sm-10">
+			<h3>{{part.name}} -- {{part.id}}</h3>
+			<uib-alert type="{{alert.type}}" close="ack();" ng-show="alert" style="position: absolute; z-index: 10; top: 35%; width: 50%;"><strong>{{alert.msg}}</strong><p>{{alert.res}}</p></uib-alert>
+			<form  class="form-horizontal">
+			<div class="form-group"><label>name:</label> <input class="form-control col-sm-5" type="text" name="name" ng-model="part.name" required></div>
+			<div class="form-group"><label>img1Url:</label> <input class="form-control col-sm-5" type="text" name="name" ng-model="part.img1Url" required></div>
+			<div class="form-group"><label>img2Url:</label> <input class="form-control col-sm-10" type="text" name="name" ng-model="part.img2Url" required></div>
+			<div class="form-group"><label>img3Url:</label> <input class="form-control col-sm-10" type="text" name="name" ng-model="part.img3Url" required></div>
+			<div class="form-group"><label>extra:</label> <input class="form-control col-sm-2" type="text" name="name" ng-model="part.extra" ></div>
+			<div class="form-group"><label>vidUrl:</label> <input class="form-control col-sm-2" type=text name="name" ng-model="part.vidUrl" ></div>
+			<div class="form-group"><label>info({{500-part.info.length}}):</label> <textarea class="form-control col-sm-2"  name="name" ng-model="part.info" maxlength="500"></textarea></div>
+			<button type="submit" class="btn btn-primary" ng-click="add()">Add</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-warning" ng-click="update()">Update</button>
+			</form>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="scripts/vendors/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/vendors/angular-route.min.js"></script>
+	<script type="text/javascript" src="scripts/vendors/angular-animate.min.js"></script>
+	<script type="text/javascript" src="scripts/vendors/ui-bootstrap-tpls-0.14.2.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.min.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="scripts/app/admin.js"></script>
+	<script type="text/javascript" src="scripts/app/factories.js"></script>
+	
+</body>
+</html>
