@@ -63,7 +63,6 @@ div.cell:hover  {
   background:white;
   border:0px solid black;
   overflow:hidden;
-  height: 100%;
 }
 
 .view-animate {
