@@ -1,0 +1,5 @@
+	<div class="" id="main">
+		<div row class="" row ng-repeat="row in rows track by $index">
+			<div cell ng-click="showInfo(row,col);" ng-repeat="col in cols track by $index" class="cell" id="{{row}}-{{col}}"></div>
+		</div>
+	</div>

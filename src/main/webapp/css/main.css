@@ -1,6 +1,7 @@
 html, body {
 	padding: 0;
 	margin: 0;
+	height: 100%;
 }
 
 html {
@@ -30,4 +31,53 @@ div.cell:hover  {
 
 #afm {
 	max-width: 100%;
+}
+
+#home {
+	background-image: url("/images/logo.png");
+	background-color: #ffffff;
+    background-origin: content-box;
+    background-attachment: local;
+    background-position: center;
+    background-position-y: 0 !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+}
+.view-animate-container {
+  position:relative;
+  background:white;
+  border:0px solid black;
+  overflow:hidden;
+  height: 100%;
+}
+
+.view-animate {
+  padding:10px;
+  height: 100%;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+
+  display:block;
+  width:100%;
+  border-left:1px solid black;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  left:-100%;
 }

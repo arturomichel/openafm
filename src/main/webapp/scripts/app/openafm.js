@@ -9,16 +9,74 @@
 	  function($routeProvider, $locationProvider) {
 		
 		$locationProvider.html5Mode({ enabled: true, requireBase: true});
-		
+
 	    $routeProvider
-	      .when('/slide/:slide', {
-	        templateUrl: 'slide.html',
-	        controller: 'SlideCtrl',
-	        controllerAs: 'slides'
+	    .when('/', {
+	        templateUrl: 'home.html',
+	        controller: 'HomeCtrl'
+	      })
+	      .when('/afm', {
+	        templateUrl: 'afm.html',
+	        controller: 'MainCtrl'
+	      })
+	      .when('/team', {
+	        templateUrl: 'team.html',
+	        controller: 'TeamCtrl'
+	      })
+	      .when('/more', {
+	        templateUrl: 'more.html',
+	        controller: 'MoreCtrl'
+	      })
+	      .when('/build', {
+	    	  templateUrl: 'build.html',
+		      controller: 'BuildCtrl'
 	      })
 	      .otherwise({redirectTo: '/'});
 	
 	    $locationProvider.html5Mode(true);
+	}]);
+	
+	app.run(['$rootScope','$location', '$window', function ($rootScope, $location, $window) {
+	    $rootScope.$on('$routeChangeSuccess', function(){
+	    	if (!$window.ga)
+                return;
+	        ga('send', 'pageview', {page:$location.path()});
+	    });
+	}]);
+	
+	app.controller('HomeCtrl', ['$location', '$scope', function($location, $scope){
+	
+	}]);
+	
+	app.controller('BuildCtrl', ['$location', '$scope', function($location, $scope){
+		
+	}]);
+	
+	app.controller('TeamCtrl', ['$location', '$scope', function($location, $scope){
+		
+	}]);
+
+	app.controller('MoreCtrl', ['$location', '$scope', function($location, $scope){
+		
+	}]);
+	
+	app.controller('NavCtrl', ['$location', '$scope', function($location, $scope){
+		
+		$scope.locations = [
+		                    {name:'Home', path:'/', active:true},
+		                    {name:'AFM', path:'/afm'},
+		                    {name:'Build', path:'/build'},
+		                    {name:'Team', path:'/team'},
+		                    {name:'More', path:'/more'}];
+		
+		$scope.location = $scope.locations[0];
+		
+		$scope.goTo = function(location) {
+			$scope.location.active = false;
+			$scope.location = location;
+			$scope.location.active = true;
+			$location.path($scope.location.path);
+		}
 	}]);
 	
 	app.controller("MainCtrl", ['$window', '$log', '$scope', 'MAP', 'InfoPopup', 'InfoService', function($window, $log, $scope, MAP, InfoPopup, InfoService) {
