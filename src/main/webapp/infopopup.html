@@ -3,9 +3,18 @@
 		Part: {{part.name}}
 	</div>
 	<div class="modal-body">
-		{{part.info}}
-		<img src="{{part.img1Url}}" style="width: 100%;"/>
-	</div>
+		<div class="row">
+			<p>{{part.info}}</p>
+		</div>
+		<div class="row">
+			<div class="col-md-6"><img src="{{part.img1Url}}" style="width: 100%;"/></div>
+			<div class="col-md-6"><img src="{{part.img2Url}}" style="width: 100%;"/></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6"><img src="{{part.img3Url}}" style="width: 100%;"/></div>
+		</div>
+		<div ng-bind-html="{{part.vidUrl}}">
+		</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-info" ng-click="ok()">Got it!</button>
 	</div>

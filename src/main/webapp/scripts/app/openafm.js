@@ -109,7 +109,7 @@
 		}
 	}]);
 	
-	app.controller('InfoCtrl', ['$modalInstance', '$scope', '$log', 'MAP', 'InfoService', 'id', function($modalInstance, $scope, $log, MAP, InfoService, id) {
+	app.controller('InfoCtrl', ['$sce', '$modalInstance', '$scope', '$log', 'MAP', 'InfoService', 'id', function($sce, $modalInstance, $scope, $log, MAP, InfoService, id) {
 		
 		$scope.part = {};
 		
@@ -131,6 +131,7 @@
 		
 		$scope.partInfo.$promise.then(function(info) {
 		      $scope.part = info;
+		      $scope.part.vidUrl = $sce.trustAsHtml($scope.part.vidUrl);
 		      $log.info("InfoCtrl " + $scope.part.name);
 	    });
 		
