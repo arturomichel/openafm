@@ -63,11 +63,11 @@
 	app.controller('NavCtrl', ['$location', '$scope', function($location, $scope){
 		
 		$scope.locations = [
-		                    {name:'Home', path:'/', active:true},
-		                    {name:'AFM', path:'/afm'},
-		                    {name:'Build', path:'/build'},
-		                    {name:'Team', path:'/team'},
-		                    {name:'More', path:'/more'}];
+		                    {name:'Home', path:'/', icon:'/images/png/science44.png', active:true},
+		                    {name:'AFM', path:'/afm', icon:'/images/png/microscope23.png'},
+		                    {name:'Build', path:'/build', icon:'/images/png/physics5.png'},
+		                    {name:'Team', path:'/team', icon:'/images/png/bald32.png'},
+		                    {name:'More', path:'/more', icon:'/images/png/magnifyingglass7.png'}];
 		
 		$scope.location = $scope.locations[0];
 		

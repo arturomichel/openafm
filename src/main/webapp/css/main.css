@@ -7,40 +7,128 @@ html, body {
 html {
 	
 }
+
+body {
+	background-image: url("/images/bg.png");
+	background-attachment: fixed;
+	margin-top: 85px;
+}
+
+body:before {
+	background-image: url("/images/science_bg.png");
+	background-attachment: fixed;
+	opacity: 0.1;
+	content: ' ';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+
 .paddingmargin {
 	padding: 10px;
 	margin: 5px;
 }
-.longtext {
-	background-color:rgba(255,255,255,0.85);
+
+.text-box {
+	background-color: rgba(255, 255, 255, 0.9);
 	border-radius: 15px 50px 30px;
 	padding: 15px;
-	border: solid 1px rgb(240,240,0);
+	border: solid 2px rgb(240, 240, 0);
 }
-#qr-code{
-	width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+
+.headline {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 24px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	text-align: center;
+	font-weight: normal;
+	color: #222;
+	line-height: 1.9em;
 }
+
+.sub-headline {
+	font-family: "Lucida Grande", Tahoma;
+	font-size: 10px;
+	font-weight: lighter;
+	font-variant: normal;
+	text-transform: uppercase;
+	color: #666666;
+	margin-top: 10px;
+	text-align: center !important;
+	letter-spacing: 0.3em;
+}
+
+p {
+	line-height: 22px;
+	letter-spacing: 0.07rem; font-family : 'Ubuntu', sans-serif;
+	font-weight: 400;
+	font-family: 'Ubuntu', sans-serif
+}
+
+p::first-letter {
+	font-size: 120%;
+	font-weight: bold;
+}
+
+
+
+nav>div>ul>li>a>uib-tab-heading>img {
+	width: 35px;
+	display: block;
+	margin-left: 38%;
+}
+nav>div>ul>li>a>uib-tab-heading>span {
+	margin-left: 25%;
+}
+
+
+nav.navbar {
+	border-radius: 0 0 10px 10px;
+	background-color: rgba(255, 255, 255, 1);
+	border: 0;
+	margin: 0;
+	height: 85px;
+}
+
+nav>div>ul {
+	height: 85px;
+	border:0;
+}
+
+nav>div>ul>li {
+	width: 130px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs > li.active>a:hover, .nav-tabs > li.active>a:focus {
+	border:0;
+}
+
+.nav-tabs>li >a {
+	border:0;
+}
+
 #main {
 	background-image: url("/images/afm_diagram.png");
-    background-color: #ffffff;
-    background-origin: content-box;
-    background-attachment: local;
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+	background-color: #ffffff;
+	background-origin: content-box;
+	background-attachment: local;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
 }
 
-
-div.cell  {
+div.cell {
 	padding: 0 !important;
 	float: left;
-	margin:0;
+	margin: 0;
 }
-div.cell:hover  {
-	 
+
+div.cell:hover {
+	
 }
 
 #afm {
@@ -48,49 +136,41 @@ div.cell:hover  {
 }
 
 #home {
-	background-image: url("/images/logo.png");
-	background-color: #ffffff;
-    background-origin: content-box;
-    background-attachment: local;
-    background-position: center;
-    background-position-y: 0 !important;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
+	
 }
+
 .view-animate-container {
-  position:relative;
-  background:white;
-  border:0px solid black;
-  overflow:hidden;
+	position: relative;
+	border: 0px solid black;
+	overflow: hidden;
 }
 
 .view-animate {
-  padding:10px;
-  height: 100%;
+	padding: 10px;
+	height: 100%;
 }
 
 .view-animate.ng-enter, .view-animate.ng-leave {
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
-
-  display:block;
-  width:100%;
-  border-left:1px solid black;
-
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:10px;
+	transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+	display: block;
+	width: 100%;
+	border-left: 1px solid black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 10px;
 }
 
 .view-animate.ng-enter {
-  left:100%;
+	left: 100%;
 }
+
 .view-animate.ng-enter.ng-enter-active {
-  left:0;
+	left: 0;
 }
+
 .view-animate.ng-leave.ng-leave-active {
-  left:-100%;
+	left: -100%;
 }

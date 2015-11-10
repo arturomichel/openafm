@@ -1,8 +1,15 @@
-<div ng-controller="NavCtrl">
+<nav  ng-controller="NavCtrl" class="navbar navbar-inverse navbar-fixed-top">
 <uib-tabset>
-    <uib-tab heading="OpenAFM"></uib-tab>
-    <uib-tab ng-repeat="location in locations" heading="{{location.name}}" active="location.active" ng-click="goTo(location);">
-    
+    <uib-tab class="">
+    	<uib-tab-heading>
+    	 <img ng-src="/images/logo_small.png" style="width:105px;padding: 0;margin: 0;"/>
+    	 </uib-tab-heading>
+    </uib-tab>
+    <uib-tab class="" ng-repeat="location in locations" active="location.active" ng-click="goTo(location);">
+    	 <uib-tab-heading>
+    	 <img ng-src="{{location.icon}}"/> 
+    	 <span>[&nbsp;{{location.name}}&nbsp;]</span>
+    	 </uib-tab-heading>
     </uib-tab>
     <!-- <uib-tab select="alertMe()">
       <uib-tab-heading>
@@ -10,5 +17,5 @@
       </uib-tab-heading>
       I've got an HTML heading, and a select callback. Pretty cool!
     </uib-tab> -->
-  </uib-tabset>
-</div>
+</uib-tabset>
+</nav>
