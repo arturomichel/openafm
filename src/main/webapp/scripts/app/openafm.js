@@ -59,7 +59,20 @@
 	app.controller('MoreCtrl', ['$location', '$scope', function($location, $scope){
 		
 	}]);
-	
+
+	app.directive("scroll", function ($window) {
+	    return function(scope, element, attrs) {
+	        angular.element($window).bind("scroll", function() {
+	            if (this.pageYOffset >= 100) {
+	                 scope.boolChangeClass = true;
+	            } else {
+	                 scope.boolChangeClass = false;
+	            }
+                    scope.$apply();
+        	});
+       	    };
+	});
+
 	app.controller('NavCtrl', ['$location', '$scope', function($location, $scope){
 		
 		$scope.locations = [
@@ -70,7 +83,7 @@
 		                    {name:'More', path:'/more', icon:'/images/png/magnifyingglass7.png'}];
 		
 		$scope.location = $scope.locations[0];
-		
+		$scope.isCollapsed = false;	
 		$scope.goTo = function(location) {
 			$scope.location.active = false;
 			$scope.location = location;

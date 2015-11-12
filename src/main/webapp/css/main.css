@@ -74,43 +74,20 @@ p::first-letter {
 	font-weight: bold;
 }
 
-
-
-nav>div>ul>li>a>uib-tab-heading>img {
-	width: 35px;
-	display: block;
-	margin-left: 38%;
-}
-nav>div>ul>li>a>uib-tab-heading>span {
-	margin-left: 25%;
+li > a > img.nav-icon  {
+	width:35px;
+	filter: invert(85%);
 }
 
-
-nav.navbar {
-	border-radius: 0 0 10px 10px;
-	background-color: rgba(255, 255, 255, 1);
-	border: 0;
-	margin: 0;
+div.navbar-inverse {
+	background-color: #000;
+	border-color: #D2D004;
 	height: 85px;
 }
-
-nav>div>ul {
-	height: 85px;
-	border:0;
+li.active a {
+	font-weight:bold;
+	color: #F8C314 !important;
 }
-
-nav>div>ul>li {
-	width: 130px;
-}
-
-.nav-tabs>li.active>a, .nav-tabs > li.active>a:hover, .nav-tabs > li.active>a:focus {
-	border:0;
-}
-
-.nav-tabs>li >a {
-	border:0;
-}
-
 #main {
 	background-image: url("/images/afm_diagram.png");
 	background-color: #ffffff;
