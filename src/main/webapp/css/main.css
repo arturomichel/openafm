@@ -27,27 +27,27 @@ body:before {
 	background-size: cover;
 }
 
-.paddingmargin {
-	padding: 10px;
-	margin: 5px;
+.top-buffer {
+	margin-top:10px;
 }
 
 .text-box {
 	background-color: rgba(255, 255, 255, 0.9);
 	border-radius: 15px 50px 30px;
-	padding: 15px;
+	padding: 10px;
 	border: solid 2px rgb(240, 240, 0);
+	margin-left: 10px; margin-right: 10px;
+	margin-top:20px;
 }
 
 .headline {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 24px;
+	font-weight: 700;
 	margin-top: 5px;
-	margin-bottom: 0px;
+	margin-bottom: 5px;
 	text-align: center;
-	font-weight: normal;
 	color: #222;
-	line-height: 1.9em;
 }
 
 .sub-headline {
@@ -76,7 +76,7 @@ p::first-letter {
 
 li > a > img.nav-icon  {
 	width:35px;
-	filter: invert(85%);
+	filter: invert(85%);-webkit-filter: invert(85%);
 }
 
 div.navbar-inverse {
@@ -88,6 +88,18 @@ li.active a {
 	font-weight:bold;
 	color: #F8C314 !important;
 }
+
+div.text-box > img {
+	display:block;
+	max-width: 100%;
+	border-radius: 30px 50px 15px;
+	margin-bottom:5px;
+	margin-top:-3px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/* afm section */
 #main {
 	background-image: url("/images/afm_diagram.png");
 	background-color: #ffffff;
@@ -151,3 +163,6 @@ div.cell:hover {
 .view-animate.ng-leave.ng-leave-active {
 	left: -100%;
 }
+
+
+/* Newsletter box */
